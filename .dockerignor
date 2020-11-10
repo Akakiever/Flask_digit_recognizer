@@ -1,0 +1,8 @@
+# Ignore everything
+**
+
+# allow project files
+!static/**
+!templates/**
+!app.py
+!recognize.py

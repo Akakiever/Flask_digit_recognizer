@@ -1,0 +1,24 @@
+{% extends "base.html"%}
+{% block content %}
+    <img id="image" src="{{ url_for('download_file', filename=image_source) }}" alt="">
+    <form method=post>
+        <input id="x-input" type="hidden" name="x">
+        <input id="y-input" type="hidden" name="y">
+        <input id="width-input" type="hidden" name="width">
+        <input id="height-input" type="hidden" name="height">
+        <input type=submit value=Recognize>
+    </form>
+    <script>
+        const image = document.getElementById('image');
+        const cropper = new Cropper(image, {
+            viewMode: 1,
+            crop(event) {
+            $('#x-input').val(event.detail.x);
+            $('#y-input').val(event.detail.y);
+            $('#width-input').val(event.detail.width);
+            console.log(event.detail.width);
+            $('#height-input').val(event.detail.height);
+            },
+        });
+    </script>
+{% endblock %}

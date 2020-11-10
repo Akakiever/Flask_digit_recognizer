@@ -1,0 +1,7 @@
+{% extends "base.html"%}
+{% block content %}
+<a href="/"><h1>Go Back</h1></a>
+{% for result in results %}
+<h1>Result {{ result[0] }}: <span id="result">{{ result[1] }}</span></h1>
+{% endfor %}
+{% endblock %}
