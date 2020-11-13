@@ -11,7 +11,7 @@ def recognize(cv_img, return_boxes=False, threshold=185):
     # kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
     # cv_img = cv2.morphologyEx(cv_img, cv2.MORPH_CLOSE, kernel)
 
-    string = pytesseract.image_to_string(cv_img, config='--psm 6')
+    string = pytesseract.image_to_string(cv_img, config='--psm 7 tessedit_char_whitelist=0123456789')
     string = re.sub('\D', '', string)
     # print(string)
     if return_boxes:
