@@ -127,6 +127,7 @@ def recognize_video(file):
         cap = cv2.VideoCapture(os_file_path)
         ret, frame = cap.read()
         os_frame_path = os.path.join(app.config['UPLOAD_FOLDER'], 'frames', file+'.png')
+        cv2.imwrite(os_frame_path, frame)
         # TODO replace with os.path.join
         return render_template('crop.html', image_source=f'frames/{file}.png')
 
